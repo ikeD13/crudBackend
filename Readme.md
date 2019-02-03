@@ -2,4 +2,4 @@
 
 
 
-https://movie-crud-ike.herokuapp.com/movies
+https://movie-crud-backend.herokuapp.com/movies
