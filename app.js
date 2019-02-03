@@ -1,19 +1,17 @@
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const express = require('express');
+const app = express();
+const port = 3000
 const cors = require('cors');
-var indexRouter = require('./mvc/routes/routes');
-var app = express();
+const indexRouter = require('./mvc/routes/routes');
 
-app.use(logger('dev'));
+app.disable('x-powered-by')
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+
+//app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(cors())
 app.use('/movies', indexRouter);
-
+app.listen(port, ()=>console.log('foshizzlemybrizzle'))
 
 module.exports = app;
